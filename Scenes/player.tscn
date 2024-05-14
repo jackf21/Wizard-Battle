@@ -15,5 +15,6 @@ position = Vector2(0, -9)
 shape = SubResource("CircleShape2D_rvuop")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.0933333, 0.106667)
+position = Vector2(-7.62939e-06, 3.8147e-06)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_rdcqe")
