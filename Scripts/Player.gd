@@ -1,15 +1,14 @@
 extends CharacterBody2D
 
-const SPEED := 300
+const SPEED := 400
 
-func _physics_process(delta):
-	var x_direction = Input.get_axis("left", "right")
-	var y_direction = Input.get_axis("up", "down")
-	
-	if x_direction or y_direction:
-		velocity = Vector2(x_direction * SPEED, y_direction * SPEED)
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+var mouse_position: Vector2
+
+func _physics_process(_delta):
+	var direction = Input.get_vector("left", "right", "up", "down")
+	velocity = direction * SPEED
 	velocity.normalized()
 	move_and_slide()
+
+func _process(_delta):
+	look_at(get_global_mouse_position())

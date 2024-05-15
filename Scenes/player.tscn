@@ -11,10 +11,10 @@ slide_on_ceiling = false
 script = ExtResource("1_khxnd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
+position = Vector2(6, 0)
 shape = SubResource("CircleShape2D_rvuop")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-7.62939e-06, 3.8147e-06)
+rotation = 1.5708
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_rdcqe")
