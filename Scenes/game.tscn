@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://clxfwlhgk63d8"]
+[gd_scene load_steps=4 format=3 uid="uid://clxfwlhgk63d8"]
 
 [ext_resource type="PackedScene" uid="uid://vgy005rvxxi" path="res://Scenes/player.tscn" id="1_ft8jb"]
 [ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_rrp21"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_em3e6"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Game Manager" type="Node" parent="."]
 script = ExtResource("1_rrp21")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Player" parent="." instance=ExtResource("1_ft8jb")]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+position_smoothing_enabled = true
+script = ExtResource("3_em3e6")
+player = NodePath("../Player")
