@@ -7,6 +7,7 @@
 radius = 21.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 slide_on_ceiling = false
 script = ExtResource("1_khxnd")
 
@@ -18,3 +19,11 @@ shape = SubResource("CircleShape2D_rvuop")
 rotation = 1.5708
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_rdcqe")
+
+[node name="Face" type="Node2D" parent="."]
+position = Vector2(27, 0)
+
+[node name="ShootCooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
