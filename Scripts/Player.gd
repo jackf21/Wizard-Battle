@@ -8,7 +8,7 @@ var shoot_ready: bool = true
 @onready var face = $Face
 
 func _input(event):
-	if event.is_action("shoot_primary") and shoot_ready:
+	if event.is_action_pressed("shoot_primary") and shoot_ready:
 		shoot_ready = false
 		var basic_projectile = BASIC_PROJECTILE.instantiate()
 		get_parent().add_child(basic_projectile)

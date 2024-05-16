@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://clxfwlhgk63d8"]
+[gd_scene load_steps=5 format=3 uid="uid://clxfwlhgk63d8"]
 
 [ext_resource type="PackedScene" uid="uid://vgy005rvxxi" path="res://Scenes/player.tscn" id="1_ft8jb"]
 [ext_resource type="Script" path="res://Scripts/Game Manager.gd" id="1_rrp21"]
 [ext_resource type="Script" path="res://Scripts/Camera.gd" id="3_em3e6"]
+[ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Magic Projectile.png" id="4_kiibi"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -12,6 +13,10 @@ script = ExtResource("1_rrp21")
 [node name="Player" parent="." instance=ExtResource("1_ft8jb")]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-position_smoothing_enabled = true
 script = ExtResource("3_em3e6")
 player = NodePath("../Player")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-48, 0)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("4_kiibi")
