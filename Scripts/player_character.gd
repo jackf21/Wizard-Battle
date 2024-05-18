@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 const SPEED := 400
 
+var health: int
 var shoot_ready: bool = true
 @export var projectile_scene: PackedScene
 @onready var shoot_cooldown = $ShootCooldown
@@ -29,3 +30,6 @@ func _input(event):
 
 func _on_shoot_cooldown_timeout():
 	shoot_ready = true
+
+func player_damage(damage_value: int):
+	health -= damage_value
