@@ -2,7 +2,7 @@ class_name Entity
 
 extends CharacterBody2D
 
-enum damage_type{ UNTYPED, FIRE, ICE }
+enum damage_types{ UNTYPED, FIRE, ICE }
 
 @export var speed: float
 @export var max_health: float
@@ -12,16 +12,15 @@ var timers = {}
 
 func _ready():
 	current_health = max_health
-	damage_entity(30, damage_type.ICE)
 
-func damage_entity(damage_value: float, type: damage_type):
+func damage_entity(damage_value: float, type: damage_types):
 	match type:
-		damage_type.UNTYPED:
+		damage_types.UNTYPED:
 			current_health -= damage_value
-		damage_type.FIRE:
+		damage_types.FIRE:
 			current_health -= damage_value
-			apply_dot_effect( 0.5, 10, damage_value * 0.1)
-		damage_type.ICE:
+			apply_dot_effect(0.5, 5, damage_value * 0.1)
+		damage_types.ICE:
 			current_health -= damage_value
 			apply_slow_effect(damage_value * 0.1, 0.8)
 

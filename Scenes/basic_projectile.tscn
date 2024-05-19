@@ -1,13 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6eq7fjykfrgb"]
 
+[ext_resource type="Script" path="res://Scripts/projectile_spell.gd" id="1_0gtfk"]
 [ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Magic Projectile.png" id="1_3fvi1"]
-[ext_resource type="Script" path="res://Scripts/basic_projectile.gd" id="1_u3iy0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r0dc0"]
 radius = 5.09902
 
 [node name="basic_projectile" type="Area2D"]
-script = ExtResource("1_u3iy0")
+script = ExtResource("1_0gtfk")
+spell_damage = 10.0
+number_of_uses = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_r0dc0")

@@ -3,8 +3,10 @@ class_name Player
 extends Entity
 
 var shoot_ready: bool = true
+
 @export var projectile_scene: PackedScene
 @export var health_label: Label
+
 @onready var shoot_cooldown = $ShootCooldown
 @onready var face = $Face
 
@@ -25,6 +27,7 @@ func _input(event):
 		get_parent().add_child(basic_projectile)
 		basic_projectile.position = face.global_position
 		basic_projectile.rotation = rotation
+		basic_projectile.number_of_uses -= 1
 		shoot_cooldown.start()
 
 func _on_shoot_cooldown_timeout():
