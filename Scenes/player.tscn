@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://vgy005rvxxi"]
 
-[ext_resource type="Script" path="res://Scripts/basic_wizard.gd" id="1_khxnd"]
+[ext_resource type="Script" path="res://Scripts/player_character.gd" id="1_t8rfa"]
 [ext_resource type="Texture2D" uid="uid://cuclrxputuahi" path="res://Assets/NormalWizard.png" id="2_rdcqe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvuop"]
@@ -9,7 +9,9 @@ radius = 21.0
 [node name="basic_wizard" type="CharacterBody2D"]
 collision_layer = 2
 slide_on_ceiling = false
-script = ExtResource("1_khxnd")
+script = ExtResource("1_t8rfa")
+speed = 400.0
+max_health = 100.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(6, 0)

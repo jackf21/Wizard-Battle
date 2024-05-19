@@ -11,12 +11,20 @@
 [node name="Game Manager" type="Node" parent="."]
 script = ExtResource("1_rrp21")
 
-[node name="Player" parent="." instance=ExtResource("1_ft8jb")]
+[node name="Player" parent="." node_paths=PackedStringArray("health_label") instance=ExtResource("1_ft8jb")]
 projectile_scene = ExtResource("3_k4ga8")
+health_label = NodePath("../Camera2D/Health Number")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_em3e6")
 player = NodePath("../Player")
+
+[node name="Health Number" type="Label" parent="Camera2D"]
+offset_left = -556.0
+offset_top = -300.0
+offset_right = -400.0
+offset_bottom = -277.0
+text = "10"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-48, 0)
