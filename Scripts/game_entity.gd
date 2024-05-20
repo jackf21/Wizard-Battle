@@ -9,6 +9,7 @@ enum damage_types{ UNTYPED, FIRE, ICE }
 var current_health: float
 var counter := 0
 var timers = {}
+var equipeed_spells: Array[Spell]
 
 func _ready():
 	current_health = max_health
