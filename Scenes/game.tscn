@@ -3,18 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://vgy005rvxxi" path="res://Scenes/player.tscn" id="1_ft8jb"]
 [ext_resource type="PackedScene" uid="uid://c6eq7fjykfrgb" path="res://Scenes/basic_projectile.tscn" id="3_k4ga8"]
 [ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Magic Projectile.png" id="4_kiibi"]
-
-[sub_resource type="GDScript" id="GDScript_frqrm"]
-script/source = "extends Node"
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="4_yigvu"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(960, 540)
 
 [node name="Game Manager" type="Node" parent="."]
-script = SubResource("GDScript_frqrm")
 
 [node name="player" parent="." node_paths=PackedStringArray("health_label") instance=ExtResource("1_ft8jb")]
-projectile_scene = ExtResource("3_k4ga8")
+position = Vector2(0, 0)
 health_label = NodePath("../Camera2D/Health Number")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -27,6 +23,7 @@ position = Vector2(-288, -2)
 spell_damage_type = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_yigvu")
 
 [node name="Health Number" type="Label" parent="Camera2D"]
 offset_left = -941.0

@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://vgy005rvxxi"]
+[gd_scene load_steps=5 format=3 uid="uid://vgy005rvxxi"]
 
 [ext_resource type="Script" path="res://Scripts/player_character.gd" id="1_t8rfa"]
 [ext_resource type="Texture2D" uid="uid://cuclrxputuahi" path="res://Assets/NormalWizard.png" id="2_rdcqe"]
+[ext_resource type="PackedScene" uid="uid://c6eq7fjykfrgb" path="res://Scenes/basic_projectile.tscn" id="2_tijba"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvuop"]
 radius = 21.0
 
 [node name="player" type="CharacterBody2D"]
+position = Vector2(960, 540)
 slide_on_ceiling = false
 script = ExtResource("1_t8rfa")
+projectile_scene = ExtResource("2_tijba")
 speed = 400.0
 max_health = 100.0
 
