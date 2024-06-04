@@ -3,6 +3,7 @@ class_name Player
 extends Entity
 
 var shoot_ready: bool = true
+var equipeed_spells: Array[Spell]
 
 @export var projectile_scene: PackedScene
 @export var health_label: Label
