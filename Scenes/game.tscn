@@ -7,7 +7,7 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Game Manager" type="Node" parent="."]
+[node name="Spell Manager" type="Node" parent="."]
 
 [node name="player" parent="." node_paths=PackedStringArray("health_label") instance=ExtResource("1_ft8jb")]
 position = Vector2(0, 0)
