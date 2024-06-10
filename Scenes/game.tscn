@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://clxfwlhgk63d8"]
+[gd_scene load_steps=6 format=3 uid="uid://clxfwlhgk63d8"]
 
 [ext_resource type="PackedScene" uid="uid://vgy005rvxxi" path="res://Scenes/player.tscn" id="1_ft8jb"]
+[ext_resource type="Script" path="res://Scripts/spell_manager.gd" id="1_oqhgy"]
 [ext_resource type="PackedScene" uid="uid://c6eq7fjykfrgb" path="res://Scenes/basic_projectile.tscn" id="3_k4ga8"]
 [ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Magic Projectile.png" id="4_kiibi"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="4_yigvu"]
@@ -8,6 +9,9 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Spell Manager" type="Node" parent="."]
+script = ExtResource("1_oqhgy")
+
+[node name="shoot_cooldown" type="Timer" parent="Spell Manager"]
 
 [node name="player" parent="." node_paths=PackedStringArray("health_label") instance=ExtResource("1_ft8jb")]
 position = Vector2(0, 0)
@@ -34,4 +38,5 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "10"
 
+[connection signal="timeout" from="Spell Manager/shoot_cooldown" to="Spell Manager" method="_on_shoot_cooldown_timeout"]
 [connection signal="body_entered" from="basic_projectile" to="basic_projectile" method="_on_body_entered"]

@@ -2,8 +2,8 @@ class_name Player
 
 extends Entity
 
-var shoot_ready: bool = true
 var equipeed_spells: Array[Spell]
+var sh
 
 @export var projectile_scene: PackedScene
 @export var health_label: Label
@@ -22,15 +22,6 @@ func _process(_delta):
 	health_label.text = str(current_health)
 
 func _input(event):
-	if event.is_action_pressed("shoot_primary") and shoot_ready:
-		shoot_ready = false
-		var basic_projectile = projectile_scene.instantiate()
-		get_parent().add_child(basic_projectile)
-		basic_projectile.position = face.global_position
-		basic_projectile.rotation = rotation
-		basic_projectile.number_of_uses -= 1
-		shoot_cooldown.start()
-
-func _on_shoot_cooldown_timeout():
-	shoot_ready = true
+	if event.is_action_pressed("shoot_primary"):
+		return
 
