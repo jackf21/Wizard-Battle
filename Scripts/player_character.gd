@@ -3,7 +3,6 @@ class_name Player
 extends Entity
 
 var equipeed_spells: Array[Spell]
-var sh
 
 @export var projectile_scene: PackedScene
 @export var health_label: Label

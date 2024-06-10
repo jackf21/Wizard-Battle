@@ -2,6 +2,8 @@ extends Spell
 
 const SPEED: float = 600
 
+signal projectile_spell_casted
+
 @onready var lifespan = $Lifespan
 @onready var player = $"../player"
 
@@ -21,3 +23,6 @@ func _on_body_entered(body):
 	if body.has_method("damage_entity"):
 		body.damage_entity(spell_damage, spell_damage_type)
 	queue_free()
+
+func emit_cast_signal():
+	projectile_spell_casted.emit("projectile_spell_casted")

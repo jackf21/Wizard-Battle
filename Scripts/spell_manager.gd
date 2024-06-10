@@ -7,6 +7,9 @@ var shoot_ready := true
 @onready var player = $"../player"
 @onready var shoot_cooldown = $shoot_cooldown
 
+func _on_basic_projectile_projectile_spell_casted():
+	cast_basic_projectile()
+
 func cast_basic_projectile():
 	shoot_ready = false
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
@@ -18,3 +21,4 @@ func cast_basic_projectile():
 
 func _on_shoot_cooldown_timeout():
 	shoot_ready = true
+

@@ -40,3 +40,4 @@ text = "10"
 
 [connection signal="timeout" from="Spell Manager/shoot_cooldown" to="Spell Manager" method="_on_shoot_cooldown_timeout"]
 [connection signal="body_entered" from="basic_projectile" to="basic_projectile" method="_on_body_entered"]
+[connection signal="projectile_spell_casted" from="basic_projectile" to="Spell Manager" method="_on_basic_projectile_projectile_spell_casted"]
