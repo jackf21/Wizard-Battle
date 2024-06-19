@@ -7,8 +7,8 @@ var shoot_ready := true
 @onready var player = $"../player"
 @onready var shoot_cooldown = $shoot_cooldown
 
-func _on_basic_projectile_projectile_spell_casted():
-	cast_basic_projectile()
+func cast_spell(id):
+	return
 
 func cast_basic_projectile():
 	shoot_ready = false
