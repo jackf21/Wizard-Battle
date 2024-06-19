@@ -2,13 +2,12 @@ class_name Player
 
 extends Entity
 
-var equipeed_spells: Array[Spell]
-
+@export var equiped_spells: Array[Spell]
 @export var projectile_scene: PackedScene
 @export var health_label: Label
 
-@onready var shoot_cooldown = $ShootCooldown
 @onready var face = $Face
+@onready var spell_manager = $"Spell Manager"
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")

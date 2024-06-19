@@ -21,4 +21,3 @@ func cast_basic_projectile():
 
 func _on_shoot_cooldown_timeout():
 	shoot_ready = true
-

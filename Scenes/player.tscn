@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://vgy005rvxxi"]
+[gd_scene load_steps=6 format=3 uid="uid://vgy005rvxxi"]
 
 [ext_resource type="Script" path="res://Scripts/player_character.gd" id="1_t8rfa"]
 [ext_resource type="Texture2D" uid="uid://cuclrxputuahi" path="res://Assets/NormalWizard.png" id="2_rdcqe"]
 [ext_resource type="PackedScene" uid="uid://c6eq7fjykfrgb" path="res://Scenes/basic_projectile.tscn" id="2_tijba"]
+[ext_resource type="Script" path="res://Scripts/spell_manager.gd" id="4_ubyoi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rvuop"]
 radius = 21.0
@@ -26,3 +27,10 @@ texture = ExtResource("2_rdcqe")
 
 [node name="Face" type="Marker2D" parent="."]
 position = Vector2(27, 0)
+
+[node name="Spell Manager" type="Node" parent="."]
+script = ExtResource("4_ubyoi")
+
+[node name="shoot_cooldown" type="Timer" parent="Spell Manager"]
+
+[connection signal="timeout" from="Spell Manager/shoot_cooldown" to="Spell Manager" method="_on_shoot_cooldown_timeout"]
