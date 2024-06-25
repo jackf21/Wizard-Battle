@@ -4,10 +4,11 @@ const SPEED: float = 600
 
 signal projectile_spell_casted
 
-@onready var lifespan = $Lifespan
-
 @export var spell_damage: float
 @export var spell_damage_type: damage_types
+
+@onready var lifespan = $Lifespan
+
 
 func _ready():
 	lifespan.start()
