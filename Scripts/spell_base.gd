@@ -5,4 +5,4 @@ extends Area2D
 enum damage_types{ UNTYPED, FIRE, ICE }
 enum spell_usage_types{ UNLIMITED, LIMITED }
 
-var spell_id: int
+@export var spell_id: int

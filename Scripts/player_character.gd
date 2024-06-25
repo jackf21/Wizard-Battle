@@ -2,7 +2,7 @@ class_name Player
 
 extends Entity
 
-@export var equiped_spells: Array[Spell]
+@export var equiped_spell_ids: Array[int]
 @export var projectile_scene: PackedScene
 @export var health_label: Label
 
@@ -21,5 +21,5 @@ func _process(_delta):
 
 func _input(event):
 	if event.is_action_pressed("shoot_primary"):
-		return
+		spell_manager.cast_spell(equiped_spell_ids[0])
 

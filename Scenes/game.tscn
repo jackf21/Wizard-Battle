@@ -9,6 +9,7 @@
 
 [node name="player" parent="." node_paths=PackedStringArray("health_label") instance=ExtResource("1_ft8jb")]
 position = Vector2(0, 0)
+equiped_spell_ids = Array[int]([0])
 health_label = NodePath("../Camera2D/Health Number")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -5,7 +5,6 @@ const SPEED: float = 600
 signal projectile_spell_casted
 
 @onready var lifespan = $Lifespan
-@onready var player = $"../player"
 
 @export var spell_damage: float
 @export var spell_damage_type: damage_types
