@@ -21,4 +21,3 @@ func _process(_delta):
 func _input(event):
 	if event.is_action_pressed("shoot_primary"):
 		spell_manager.cast_spell(equiped_spell_ids[0])
-

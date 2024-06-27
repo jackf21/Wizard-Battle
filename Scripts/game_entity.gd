@@ -67,3 +67,6 @@ func burn(damage):
 func remove_slow(slow_value):
 	speed *= 1/slow_value
 	is_ice_slowed = false
+
+func get_entity_velocity():
+	return get_entity_velocity()
