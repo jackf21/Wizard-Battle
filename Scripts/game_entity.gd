@@ -1,3 +1,5 @@
+#Entity class that all characters (players and enemies) will inherit 
+
 class_name Entity
 extends CharacterBody2D
 

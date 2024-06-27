@@ -1,3 +1,4 @@
+#Camera follows the player and is positioned 1/4 of the way between them and the mouse position on screen
 extends Camera2D
 
 @onready var player: CharacterBody2D = $"../player"

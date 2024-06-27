@@ -3,7 +3,6 @@ class_name Player
 extends Entity
 
 @export var equiped_spell_ids: Array[int]
-@export var projectile_scene: PackedScene
 @export var health_label: Label
 
 @onready var face = $Face

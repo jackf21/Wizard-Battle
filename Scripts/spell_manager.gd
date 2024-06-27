@@ -6,6 +6,7 @@ var shoot_ready := true
 
 @onready var player = $".."
 @onready var shoot_cooldown = $shoot_cooldown
+@onready var node_2d = $"."
 
 func cast_spell(id):
 	match id:
@@ -18,9 +19,9 @@ func cast_basic_projectile():
 	#print("Casting basic projectile")
 	shoot_ready = false
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
-	player.add_child(basic_projectile)
-	basic_projectile.position = player.face.position
-	#basic_projectile.rotation = player.rotation
+	node_2d.add_child(basic_projectile)
+	basic_projectile.position = player.face.global_position
+	basic_projectile.rotation_degrees = player.rotation_degrees
 	shoot_cooldown.start()
 	#print("Basic projectile casted")
 

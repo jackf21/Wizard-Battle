@@ -2,13 +2,11 @@ extends Spell
 
 const SPEED: float = 600
 
-signal projectile_spell_casted
-
 @export var spell_damage: float
 @export var spell_damage_type: damage_types
 
 @onready var lifespan = $Lifespan
-
+@onready var player = $"."
 
 func _ready():
 	lifespan.start()
