@@ -14,8 +14,8 @@ func _on_lifespan_timeout():
 	queue_free()
 
 func _physics_process(delta):
-	position += (transform.x * SPEED * delta)
-
+	position += (transform.x * SPEED * delta) 
+	
 func _on_body_entered(body):
 	if body.has_method("damage_entity"):
 		body.damage_entity(spell_damage, spell_damage_type)

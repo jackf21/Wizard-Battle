@@ -1,6 +1,6 @@
 class_name Spell
 
-extends Area2D
+extends CharacterBody2D
 
 enum damage_types{ UNTYPED, FIRE, ICE }
 enum spell_usage_types{ UNLIMITED, LIMITED }
