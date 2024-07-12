@@ -16,11 +16,13 @@ script = ExtResource("1_0gtfk")
 shape = SubResource("CircleShape2D_isjul")
 
 [node name="Untyped_sprite" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_3fvi1")
 
-[node name="Lifespan" type="Timer" parent="."]
-
 [node name="Fire_sprite" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_57gth")
+
+[node name="Lifespan" type="Timer" parent="."]

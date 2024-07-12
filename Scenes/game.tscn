@@ -10,7 +10,7 @@
 
 [node name="player" parent="." node_paths=PackedStringArray("health_label") instance=ExtResource("1_ft8jb")]
 position = Vector2(0, 0)
-equiped_spell_ids = Array[int]([1, 0])
+equiped_spell_ids = Array[int]([0, 1])
 health_label = NodePath("../Camera2D/Health Number")
 
 [node name="Camera2D" type="Camera2D" parent="."]
