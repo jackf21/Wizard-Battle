@@ -30,11 +30,14 @@ func cast_untyped_projectile():
 	print("Casting basic projectile")
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
 	cast_basic_projectile(basic_projectile)
-	basic_projectile.Untyped_sprite.visible = true
+	#var test = basic_projectile.get_node("Untyped_sprite")
+	#if (test == null):
+	#	print("basic projectile sprite has not instanced")
+	basic_projectile.get_node("Untyped_sprite").visible = true
 
 func cast_fire_projectile():
 	print("Casting fire projectile")
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
 	cast_basic_projectile(basic_projectile)
 	basic_projectile.spell_damage_type = "FIRE"
-	#$Fire_sprite.show()
+	basic_projectile.get_node("Fire_sprite").visible = true
