@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://clxfwlhgk63d8"]
+[gd_scene load_steps=6 format=3 uid="uid://clxfwlhgk63d8"]
 
 [ext_resource type="PackedScene" uid="uid://vgy005rvxxi" path="res://Scenes/player.tscn" id="1_ft8jb"]
+[ext_resource type="PackedScene" uid="uid://gihdu2met5oy" path="res://Scenes/shooter_hostile_01.tscn" id="4_1lwf3"]
 [ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Magic Projectile.png" id="4_kiibi"]
 [ext_resource type="Script" path="res://Scripts/camera.gd" id="4_yigvu"]
 
@@ -37,3 +38,6 @@ shape = SubResource("CircleShape2D_ygitw")
 position = Vector2(9.53674e-07, 4.76837e-07)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_kiibi")
+
+[node name="shooter_hostile_01" parent="." instance=ExtResource("4_1lwf3")]
+position = Vector2(145, 2)
