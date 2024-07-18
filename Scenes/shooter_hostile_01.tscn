@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://gihdu2met5oy"]
+
+[ext_resource type="Texture2D" uid="uid://ugttkyebyoja" path="res://icon.svg" id="1_il0re"]
+[ext_resource type="Script" path="res://Scripts/shooter_hostile_01.gd" id="1_ktvjs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pd6on"]
+size = Vector2(38, 36)
+
+[node name="shooter_hostile_01" type="CharacterBody2D"]
+script = ExtResource("1_ktvjs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.328125, 0.296875)
+texture = ExtResource("1_il0re")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pd6on")

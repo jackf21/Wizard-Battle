@@ -5,7 +5,6 @@ extends Entity
 @export var equiped_spell_ids: Array[int]
 @export var health_label: Label
 
-@onready var face = $Face
 @onready var spell_manager = $"Spell Manager"
 
 func _physics_process(_delta):

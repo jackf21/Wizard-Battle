@@ -32,7 +32,7 @@ func cast_untyped_projectile():
 	cast_basic_projectile(basic_projectile)
 	#var test = basic_projectile.get_node("Untyped_sprite")
 	#if (test == null):
-	#	print("basic projectile sprite has not instanced")
+	#print("basic projectile sprite has not instanced")
 	basic_projectile.get_node("Untyped_sprite").visible = true
 
 func cast_fire_projectile():
