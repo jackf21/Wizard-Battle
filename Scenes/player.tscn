@@ -23,7 +23,7 @@ rotation = 1.5708
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_rdcqe")
 
-[node name="Face" type="Marker2D" parent="."]
+[node name="face" type="Marker2D" parent="."]
 position = Vector2(27, 0)
 
 [node name="Spell Manager" type="Node" parent="."]

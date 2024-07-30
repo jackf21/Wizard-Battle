@@ -5,6 +5,7 @@ const BASIC_PROJECTILE_SCENE = preload("res://Scenes/basic_projectile.tscn")
 var shoot_ready := true
 
 @onready var player = $".."
+@onready var face = $"../face"
 @onready var shoot_cooldown = $shoot_cooldown
 
 func cast_spell(id):
@@ -22,7 +23,7 @@ func _on_shoot_cooldown_timeout():
 func cast_basic_projectile(projectile_scene):
 	shoot_ready = false
 	get_tree().get_root().add_child(projectile_scene)
-	projectile_scene.position = player.face.global_position
+	projectile_scene.position = face.global_position
 	projectile_scene.rotation = player.rotation
 	shoot_cooldown.start()
 
