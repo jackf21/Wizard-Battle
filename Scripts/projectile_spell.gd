@@ -1,6 +1,6 @@
 extends Spell
 
-const SPEED: float = 1000
+var speed: float = 1000
 
 @export var spell_damage: float
 @export var spell_damage_type: damage_types
@@ -14,7 +14,7 @@ func _on_lifespan_timeout():
 	queue_free()
 
 func _physics_process(delta):
-	position += (transform.x * SPEED * delta) 
+	position += (transform.x * speed * delta) 
 	
 func _on_body_entered(body):
 	if body.has_method("damage_entity"):
