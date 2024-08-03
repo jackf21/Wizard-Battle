@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://de8os5xfy51il"]
+[gd_scene load_steps=14 format=3 uid="uid://de8os5xfy51il"]
 
 [ext_resource type="Script" path="res://Scripts/projectile_spell.gd" id="1_0gtfk"]
 [ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Magic Projectile.png" id="1_3fvi1"]
@@ -6,6 +6,70 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_isjul"]
 radius = 5.09902
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c6kr"]
+atlas = ExtResource("3_57gth")
+region = Rect2(0, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4of05"]
+atlas = ExtResource("3_57gth")
+region = Rect2(64, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yepey"]
+atlas = ExtResource("3_57gth")
+region = Rect2(128, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7vqv"]
+atlas = ExtResource("3_57gth")
+region = Rect2(192, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7ewd"]
+atlas = ExtResource("3_57gth")
+region = Rect2(256, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxs8q"]
+atlas = ExtResource("3_57gth")
+region = Rect2(320, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_722n1"]
+atlas = ExtResource("3_57gth")
+region = Rect2(384, 256, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pfpc"]
+atlas = ExtResource("3_57gth")
+region = Rect2(448, 256, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cuqrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c6kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4of05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yepey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7vqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7ewd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxs8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_722n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pfpc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="basic_projectile" type="CharacterBody2D"]
 collision_layer = 2
@@ -20,10 +84,9 @@ visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_3fvi1")
 
-[node name="Fire_sprite" type="Sprite2D" parent="."]
+[node name="Fire_projectile_animation" type="AnimatedSprite2D" parent="."]
 visible = false
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_57gth")
+sprite_frames = SubResource("SpriteFrames_cuqrj")
 
 [node name="Lifespan" type="Timer" parent="."]
 

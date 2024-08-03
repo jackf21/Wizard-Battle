@@ -1,7 +1,6 @@
 extends Node
 
 const BASIC_PROJECTILE_SCENE = preload("res://Scenes/basic_projectile.tscn")
-const FIRE_PROJECTILE_SCENE = preload("res://Scenes/fire_projectile.tscn")
 
 var shoot_ready := true
 
@@ -53,8 +52,8 @@ func cast_untyped_projectile():
 
 func cast_fire_projectile():
 	print("Casting fire projectile")
-	var fire_projectile = FIRE_PROJECTILE_SCENE.instantiate()
-	cast_basic_projectile(fire_projectile)
-	fire_projectile.spell_damage_type = "FIRE"
-	fire_projectile.speed = 500
-	fire_projectile.get_node("Fire_sprite").visible = true
+	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
+	cast_basic_projectile(basic_projectile)
+	basic_projectile.spell_damage_type = "FIRE"
+	basic_projectile.speed = 500
+	basic_projectile.get_node("Fire_projectile_animation").visible = true
