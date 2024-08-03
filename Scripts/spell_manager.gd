@@ -14,16 +14,21 @@ var mapIdToSpellDict = {
 }
 
 func cast_spell(id):
-	
-	# looks up ID in dictionary, return null if not found
-	var functionName = mapIdToSpellDict.get(id, null)
-	
-	if functionName == null:
-		print("Spell ID not found in dictionary.")
+	if (shoot_ready):
+		shoot_cooldown.start(1)
+		shoot_ready = false
+		# looks up ID in dictionary, return null if not found
+		var functionName = mapIdToSpellDict.get(id, null)
+		
+		if functionName == null:
+			print("Spell ID not found in dictionary.")
+			return
+		
+		# calls appropriate spell function
+		call(functionName)
+	else:
+		print("Shoot not ready")
 		return
-	
-	# calls appropriate spell function
-	call(functionName)
 
 func _on_shoot_cooldown_timeout():
 	shoot_ready = true
@@ -35,7 +40,6 @@ func cast_basic_projectile(projectile_scene):
 	get_tree().get_root().add_child(projectile_scene)
 	projectile_scene.position = face.global_position
 	projectile_scene.rotation = player.rotation
-	shoot_cooldown.start()
 
 func cast_untyped_projectile():
 	print("Casting basic projectile")
