@@ -8,7 +8,7 @@ var speed: float = 1000
 @onready var lifespan = $Lifespan
 
 func _ready():
-	lifespan.start()
+	lifespan.start(5)
 
 func _on_lifespan_timeout():
 	queue_free()
