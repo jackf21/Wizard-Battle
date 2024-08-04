@@ -40,6 +40,7 @@ func cast_basic_projectile(projectile_scene):
 	get_tree().get_root().add_child(projectile_scene)
 	projectile_scene.position = face.global_position
 	projectile_scene.rotation = player.rotation
+	projectile_scene.velocity = face.global_position - player.global_position
 
 func cast_untyped_projectile():
 	print("Casting basic projectile")
@@ -55,5 +56,4 @@ func cast_fire_projectile():
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
 	cast_basic_projectile(basic_projectile)
 	basic_projectile.spell_damage_type = "FIRE"
-	basic_projectile.speed = 500
 	basic_projectile.get_node("Fire_projectile_animation").visible = true

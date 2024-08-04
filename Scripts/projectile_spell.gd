@@ -1,6 +1,7 @@
 extends Spell
 
-var speed: float = 1000
+var speed: float = 50
+var player
 
 @export var spell_damage: float
 @export var spell_damage_type: damage_types
@@ -14,9 +15,11 @@ func _on_lifespan_timeout():
 	queue_free()
 
 func _physics_process(delta):
-	position += (transform.x * speed * delta) 
-	
-func _on_body_entered(body):
-	if body.has_method("damage_entity"):
-		body.damage_entity(spell_damage, spell_damage_type)
-	queue_free()
+	var collision = move_and_collide(velocity * speed * delta)
+	if (collision):
+		#
+		# Will always queue free on collision
+		#
+		if collision.get_collider().has_method("damage_entity"):
+			collision.get_collider().damage_entity(spell_damage, spell_damage_type)
+		queue_free()
