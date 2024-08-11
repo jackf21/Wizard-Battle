@@ -8,6 +8,9 @@ extends Entity
 @onready var spell_manager = $"Spell Manager"
 
 func _physics_process(_delta):
+	#
+	# Basic Movement
+	#
 	var direction = Input.get_vector("left", "right", "up", "down")
 	velocity = direction * speed
 	velocity.normalized()
@@ -18,6 +21,10 @@ func _process(_delta):
 	health_label.text = str(current_health)
 
 func _input(event):
+	#
+	# Array contains the id of the spell that should be cast when the button is pressed
+	# Id is checked against the dictionary by the spell manager
+	#
 	if event.is_action_pressed("shoot_primary"):
 		spell_manager.cast_spell(equipped_spell_ids[0])
 	if event.is_action_pressed("shoot_secondary"):

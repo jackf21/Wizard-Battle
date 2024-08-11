@@ -1,7 +1,10 @@
-#Entity class that all characters (players and enemies) will inherit 
-
 class_name Entity
+
 extends CharacterBody2D
+
+#
+# Base class for anything considered an "entity" that needs to have the functions here such as taking damage
+#
 
 enum damage_types{ UNTYPED, FIRE, ICE }
 
@@ -19,6 +22,9 @@ func _ready():
 
 func damage_entity(damage_value: float, type: damage_types):
 	match type:
+		#
+		# All damage types take away the player's health but some have special effects
+		#
 		damage_types.UNTYPED:
 			current_health -= damage_value
 		damage_types.FIRE:
