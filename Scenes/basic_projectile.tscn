@@ -89,5 +89,6 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_cuqrj")
 
 [node name="Lifespan" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="Lifespan" to="." method="_on_lifespan_timeout"]
