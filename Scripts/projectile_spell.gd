@@ -2,6 +2,7 @@ extends Spell
 
 var speed: float = 50
 var player
+var lifespan_time: float = 5
 
 @export var spell_damage: float
 @export var spell_damage_type: damage_types
@@ -9,7 +10,7 @@ var player
 @onready var lifespan = $Lifespan
 
 func _ready():
-	lifespan.start(5)
+	lifespan.start(lifespan_time)
 
 func _on_lifespan_timeout():
 	queue_free()

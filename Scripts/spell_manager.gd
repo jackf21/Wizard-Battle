@@ -3,6 +3,7 @@ extends Node
 const BASIC_PROJECTILE_SCENE = preload("res://Scenes/basic_projectile.tscn")
 
 var shoot_ready := true
+var shoot_cooldown_time: float = 1
 
 @onready var player = $".."
 @onready var face = $"../face"
@@ -15,7 +16,7 @@ var mapIdToSpellDict = {
 
 func cast_spell(id):
 	if (shoot_ready):
-		shoot_cooldown.start(1)
+		shoot_cooldown.start(shoot_cooldown_time)
 		shoot_ready = false
 		# looks up ID in dictionary, return null if not found
 		var functionName = mapIdToSpellDict.get(id, null)
