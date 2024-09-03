@@ -1,3 +1,6 @@
+# TODO
+# Have the point the player is looking at be a node which is modified by both moving the player and the mouse (like hotline miami)
+
 class_name Player
 
 extends Entity

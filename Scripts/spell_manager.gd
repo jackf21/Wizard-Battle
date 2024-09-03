@@ -1,3 +1,9 @@
+# TODO:
+# MORE SPELLS
+# Large fireball that explodes on impact 
+# Raycast beam to the mouse position 
+# Piercing ice bolt
+
 extends Node
 
 const BASIC_PROJECTILE_SCENE = preload("res://Scenes/basic_projectile.tscn")
