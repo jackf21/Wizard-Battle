@@ -1,4 +1,5 @@
 # TODO:
+# cast_basic_projectile velocity of the projectile scene needs to be changed to use the direction_to() function towards the mouse
 # MORE SPELLS
 # Large fireball that explodes on impact 
 # Raycast beam to the mouse position 
@@ -43,7 +44,6 @@ func _on_shoot_cooldown_timeout():
 # Basic projectile is what is fired by everything else, but is edited based on what is needed individually by other projectiles
 # This is NOT a projectile that can be fired itself!
 func cast_basic_projectile(projectile_scene):
-	shoot_ready = false
 	get_tree().get_root().add_child(projectile_scene)
 	projectile_scene.position = face.global_position
 	projectile_scene.rotation = player.rotation
