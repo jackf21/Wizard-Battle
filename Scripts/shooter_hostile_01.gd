@@ -1,6 +1,7 @@
 # TODO:
 # Have if/else deciding whether to shoot or move be scalable for different timer lengths
-# Fix enemy direction of shooting
+# Enemy direction of shooting has the same skew as the player shooting when moving
+#	Fixing player first would help?
 
 class_name Shooter_hostile
 
@@ -79,12 +80,13 @@ func shooting_mode(cooldown_time: float, player_position) -> void:
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
 	
 	if (shoot_ready):
+		print("Shooting at player")
 		shoot_cooldown.start(cooldown_time)
 		shoot_ready = false
 		get_tree().get_root().add_child(basic_projectile)
 		basic_projectile.position = face.global_position
 		#basic_projectile.rotation = rotation
-		basic_projectile.velocity = face.position.direction_to(player_position)
+		basic_projectile.velocity = global_position.direction_to(face.global_position)
 		basic_projectile.get_node("Untyped_sprite").visible = true
 
 func _on_shoot_cooldown_timeout() -> void:
