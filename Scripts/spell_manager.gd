@@ -1,5 +1,5 @@
 # TODO:
-# cast_basic_projectile velocity of the projectile scene needs to be changed to use the direction_to() function towards the mouse
+# # Fix direction of shots being skewed when moving
 # MORE SPELLS
 # Large fireball that explodes on impact 
 # Raycast beam to the mouse position 
@@ -46,8 +46,8 @@ func _on_shoot_cooldown_timeout():
 func cast_basic_projectile(projectile_scene):
 	get_tree().get_root().add_child(projectile_scene)
 	projectile_scene.position = face.global_position
-	projectile_scene.rotation = player.rotation
-	projectile_scene.velocity = face.global_position - player.global_position
+	#projectile_scene.rotation = player.rotation
+	projectile_scene.velocity = player.global_position.direction_to(face.global_position)
 
 func cast_untyped_projectile():
 	print("Casting basic projectile")
