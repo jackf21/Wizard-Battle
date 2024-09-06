@@ -1,10 +1,8 @@
+# Base class for anything considered an "entity" that needs to have the functions here such as taking damage
+
 class_name Entity
 
 extends CharacterBody2D
-
-#
-# Base class for anything considered an "entity" that needs to have the functions here such as taking damage
-#
 
 enum damage_types{ UNTYPED, FIRE, ICE }
 
