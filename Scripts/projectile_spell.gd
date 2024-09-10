@@ -1,6 +1,6 @@
 extends Spell
 
-var speed: float = 700
+var speed: float = 1000
 var player
 var lifespan_time: float = 5
 

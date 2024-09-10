@@ -14,38 +14,34 @@ var shooting_cooldown: float = 2
 var mode_timer_time: float = 10
 var shoot_ready := true 
 
-# MAx and minimun distance the enemy should be away from the player (needs tweaking)
-@export var min_player_dist := 370
+# Max and minimun distance the enemy should be away from the player (needs tweaking)
+@export var min_player_dist := 200
 @export var max_player_dist := 450
 
 @onready var player = $"../player"
 @onready var face: Marker2D = $face
 
-# Timer determining how long the enemy needs to stay still before moving
-@onready var mode_timer: Timer = $mode_timer
 # Timer between shots
 @onready var shoot_cooldown: Timer = $shoot_cooldown
 
-func _ready() -> void:
-	mode_timer.start(mode_timer_time)
-
 func _process(_delta) -> void:
 	var player_position = player.global_position
-	
+	var distance_to_player = global_position.distance_to(player_position)
 	look_at(player_position)
 	#
 	# Enemy will swap between movement and shooting modes depending on the time left on the timer
 	# Enemy should spend 1/3 of the time moving and the rest shooting 
 	#
-	if (mode_timer.time_left >= mode_timer_time * 2/3):
-		movement_mode(player_position)
+	if (distance_to_player > max_player_dist):
+		velocity = position.direction_to(player_position) * speed
+		move_and_slide()
 	else:
 		shooting_mode(shooting_cooldown)
 
 
 # Moving the enemy based on its distance to the player
-func  movement_mode(player_position) -> void:
-	var distance_to_player = global_position.distance_to(player_position)
+func  movement_mode(player_position, distance_to_player) -> void:
+	
 	#
 	# Figure out if the enemy is moving to the max or min
 	# move_state must be either 1, 0 or -1
@@ -53,9 +49,7 @@ func  movement_mode(player_position) -> void:
 	if (move_state == 0):
 		#print("Neutral move state")
 		#print("Deciding direction of movement")
-		if(distance_to_player > min_player_dist && distance_to_player <  max_player_dist):
-			return
-		elif (distance_to_player < min_player_dist):
+		if (distance_to_player < min_player_dist):
 			move_state = -1 # Player is too close, move towards max
 		else:
 			move_state = 1 # Player is too far away, move towards min
@@ -75,14 +69,14 @@ func  movement_mode(player_position) -> void:
 	#
 	elif (move_state == -1):
 		#print("Moving away from player")
-		velocity = (position.direction_to(player_position) * -1) * speed
+		velocity = position.direction_to(player_position) * -1 * speed
 		move_and_slide()
 		
 		if (distance_to_player >= max_player_dist):
 			move_state = 0 
 			return # Resets the movestate as the player is now too far away
 
-# SHooting at the player
+# Shooting at the player
 func shooting_mode(cooldown_time: float) -> void:
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
 	

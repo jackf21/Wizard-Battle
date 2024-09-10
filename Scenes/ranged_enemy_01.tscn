@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://gihdu2met5oy"]
 
 [ext_resource type="Texture2D" uid="uid://ugttkyebyoja" path="res://icon.svg" id="1_il0re"]
-[ext_resource type="Script" path="res://Scripts/shooter_hostile_01.gd" id="1_ktvjs"]
+[ext_resource type="Script" path="res://Scripts/ranged_enemy_01.gd" id="1_ktvjs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pd6on"]
 size = Vector2(38, 36)
 
-[node name="shooter_hostile_01" type="CharacterBody2D"]
+[node name="ranged_enemy_01" type="CharacterBody2D"]
 script = ExtResource("1_ktvjs")
-speed = 350.0
+speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
@@ -20,9 +20,6 @@ shape = SubResource("RectangleShape2D_pd6on")
 
 [node name="face" type="Marker2D" parent="."]
 position = Vector2(21, 0)
-
-[node name="mode_timer" type="Timer" parent="."]
-wait_time = 10.0
 
 [node name="shoot_cooldown" type="Timer" parent="."]
 wait_time = 2.0
