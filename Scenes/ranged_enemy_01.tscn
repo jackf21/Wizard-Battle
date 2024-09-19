@@ -7,6 +7,8 @@
 size = Vector2(38, 36)
 
 [node name="ranged_enemy_01" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 15
 script = ExtResource("1_ktvjs")
 speed = 200.0
 

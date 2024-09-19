@@ -1,5 +1,6 @@
 # TODO:
 # # Fix direction of shots being skewed when moving
+# Changing collision layer and mask depending of whether the projectile is from the player or an enemy
 # MORE SPELLS
 # Large fireball that explodes on impact 
 # Raycast beam to the mouse position 
@@ -56,11 +57,13 @@ func cast_untyped_projectile():
 	#var test = basic_projectile.get_node("Untyped_sprite")
 	#if (test == null):
 	#print("basic projectile sprite has not instanced")
-	basic_projectile.get_node("Untyped_sprite").visible = true
+	basic_projectile.change_projectile_to_player()
+	basic_projectile.cast_untyped_projectile()
 
 func cast_fire_projectile():
 	print("Casting fire projectile")
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
 	cast_basic_projectile(basic_projectile)
 	basic_projectile.spell_damage_type = "FIRE"
-	basic_projectile.get_node("Fire_projectile_animation").visible = true
+	basic_projectile.change_projectile_to_player()
+	basic_projectile.cast_fire_projectile()

@@ -1,82 +1,24 @@
-[gd_scene load_steps=14 format=3 uid="uid://de8os5xfy51il"]
+[gd_scene load_steps=7 format=3 uid="uid://de8os5xfy51il"]
 
-[ext_resource type="Script" path="res://Scripts/projectile_spell.gd" id="1_0gtfk"]
+[ext_resource type="Script" path="res://Scripts/basic_projectile.gd" id="1_0gtfk"]
 [ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Magic Projectile.png" id="1_3fvi1"]
-[ext_resource type="Texture2D" uid="uid://bwpdsrodcnneh" path="res://Assets/Fireball.png" id="3_57gth"]
+[ext_resource type="Texture2D" uid="uid://dxobrblmdiqd4" path="res://Assets/fireball_old.png" id="3_okeg2"]
+[ext_resource type="Texture2D" uid="uid://cf1lm13ipjdyb" path="res://Assets/spear.png" id="4_jukdl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_isjul"]
 radius = 5.09902
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8c6kr"]
-atlas = ExtResource("3_57gth")
-region = Rect2(0, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4of05"]
-atlas = ExtResource("3_57gth")
-region = Rect2(64, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yepey"]
-atlas = ExtResource("3_57gth")
-region = Rect2(128, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f7vqv"]
-atlas = ExtResource("3_57gth")
-region = Rect2(192, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v7ewd"]
-atlas = ExtResource("3_57gth")
-region = Rect2(256, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oxs8q"]
-atlas = ExtResource("3_57gth")
-region = Rect2(320, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_722n1"]
-atlas = ExtResource("3_57gth")
-region = Rect2(384, 256, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6pfpc"]
-atlas = ExtResource("3_57gth")
-region = Rect2(448, 256, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cuqrj"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8c6kr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4of05")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yepey")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f7vqv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v7ewd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_oxs8q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_722n1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6pfpc")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7p31"]
+size = Vector2(10, 4)
 
 [node name="basic_projectile" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_0gtfk")
+spell_damage = 10.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="ball_hitbox" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_isjul")
 
 [node name="Untyped_sprite" type="Sprite2D" parent="."]
@@ -84,9 +26,23 @@ visible = false
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_3fvi1")
 
-[node name="Fire_projectile_animation" type="AnimatedSprite2D" parent="."]
+[node name="Fire_sprite" type="Sprite2D" parent="."]
 visible = false
-sprite_frames = SubResource("SpriteFrames_cuqrj")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_okeg2")
+
+[node name="spear_collider" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(25, -7.21201e-12)
+shape = SubResource("RectangleShape2D_d7p31")
+disabled = true
+
+[node name="Spear_sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(15, 6.39488e-14)
+rotation = 1.5708
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_jukdl")
 
 [node name="Lifespan" type="Timer" parent="."]
 one_shot = true
