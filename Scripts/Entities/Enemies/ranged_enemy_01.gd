@@ -6,7 +6,7 @@
 
 extends Entity
 
-const BASIC_PROJECTILE_SCENE = preload("res://Scenes/Projectiles/basic_projectile.tscn")
+const BASIC_PROJECTILE_SCENE = preload("res://Scenes/basic_projectile.tscn")
 
 var move_state := 0
 var shooting_cooldown: float = 2

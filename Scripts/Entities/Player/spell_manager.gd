@@ -8,8 +8,8 @@
 
 extends Node
 
-const BASIC_PROJECTILE_SCENE = preload("res://Scenes/Projectiles/basic_projectile.tscn")
-const EXPLOSIVE_PROJECTILESCENE = preload("res://Scenes/Projectiles/explosive_projectile.tscn")
+const BASIC_PROJECTILE_SCENE = preload("res://Scenes/basic_projectile.tscn")
+const EXPLOSIVE_PROJECTILESCENE = preload("res://Scenes/explosive_projectile.tscn")
 
 var shoot_ready := true
 var shoot_cooldown_time: float = 1

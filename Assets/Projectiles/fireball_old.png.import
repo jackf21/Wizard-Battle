@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpq1jr221tjgj"
-path="res://.godot/imported/Magic Projectile.png-84c6745d42faf54f840bced7d2ea0d02.ctex"
+uid="uid://dxobrblmdiqd4"
+path="res://.godot/imported/fireball_old.png-b96eeac31aab4b8ef37bc5e4f762b178.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Magic Projectile.png"
-dest_files=["res://.godot/imported/Magic Projectile.png-84c6745d42faf54f840bced7d2ea0d02.ctex"]
+source_file="res://Assets/Projectiles/fireball_old.png"
+dest_files=["res://.godot/imported/fireball_old.png-b96eeac31aab4b8ef37bc5e4f762b178.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuclrxputuahi"
-path="res://.godot/imported/NormalWizard.png-0f4caf911124b064b20f600b0654963c.ctex"
+uid="uid://bwpdsrodcnneh"
+path="res://.godot/imported/Fireball.png-7bd8128825fad4e610eafea605bdb227.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/NormalWizard.png"
-dest_files=["res://.godot/imported/NormalWizard.png-0f4caf911124b064b20f600b0654963c.ctex"]
+source_file="res://Assets/Projectiles/Fireball.png"
+dest_files=["res://.godot/imported/Fireball.png-7bd8128825fad4e610eafea605bdb227.ctex"]
 
 [params]
 
