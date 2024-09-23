@@ -1,20 +1,21 @@
 # TODO:
-# Enemy moves towards the player when too close
+# Enemy movesa towards the player when too close
 # Enemy direction of shooting has the same skew as the player shooting when moving
 #	Fixing player first would help?
-# Add delay to the rotation of the enemy
+
+class_name Shooter_hostile
 
 extends Entity
 
-const BASIC_PROJECTILE_SCENE = preload("res://Scenes/Projectiles/basic_projectile.tscn")
+const BASIC_PROJECTILE_SCENE = preload("res://Scenes/basic_projectile.tscn")
 
 var move_state := 0
 var shooting_cooldown: float = 2
+var mode_timer_time: float = 10
 var shoot_ready := true 
 
 # Max and minimun distance the enemy should be away from the player (needs tweaking)
-var rand_dist_from_player := randi_range(375, 450)
-@export var min_player_dist := 400
+@export var min_player_dist := 200
 @export var max_player_dist := 450
 
 @onready var player = $"../player"
@@ -26,11 +27,12 @@ var rand_dist_from_player := randi_range(375, 450)
 func _process(_delta) -> void:
 	var player_position = player.global_position
 	var distance_to_player = global_position.distance_to(player_position)
-	#look_at(player_position)
-	#This is the same as look_at(player_position) but is needed for adding the delay
-	rotate((to_local(player_position) * get_scale()).angle())
-	
-	if (distance_to_player > rand_dist_from_player):
+	look_at(player_position)
+	#
+	# Enemy will swap between movement and shooting modes depending on the time left on the timer
+	# Enemy should spend 1/3 of the time moving and the rest shooting 
+	#
+	if (distance_to_player > max_player_dist):
 		velocity = position.direction_to(player_position) * speed
 		move_and_slide()
 	else:
@@ -38,8 +40,6 @@ func _process(_delta) -> void:
 
 
 # Moving the enemy based on its distance to the player
-# Not used at the moment, enemy will work with what it uses now
-# Could use improving, not high priority
 func  movement_mode(player_position, distance_to_player) -> void:
 	
 	#

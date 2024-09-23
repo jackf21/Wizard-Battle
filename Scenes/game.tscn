@@ -1,19 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://clxfwlhgk63d8"]
 
 [ext_resource type="PackedScene" uid="uid://vgy005rvxxi" path="res://Scenes/player.tscn" id="1_ft8jb"]
-[ext_resource type="Script" path="res://Scripts/UI/camera.gd" id="2_obp16"]
-[ext_resource type="PackedScene" uid="uid://gihdu2met5oy" path="res://Scenes/Enemies/ranged_enemy_01.tscn" id="4_1lwf3"]
-[ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Projectiles/Magic Projectile.png" id="4_kiibi"]
+[ext_resource type="PackedScene" uid="uid://gihdu2met5oy" path="res://Scenes/ranged_enemy_01.tscn" id="4_1lwf3"]
+[ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Magic Projectile.png" id="4_kiibi"]
+[ext_resource type="Script" path="res://Scripts/camera.gd" id="4_yigvu"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="player" parent="." node_paths=PackedStringArray("health_label") instance=ExtResource("1_ft8jb")]
 position = Vector2(0, 0)
-equipped_spell_ids = Array[int]([0, 2, 0, 1])
+equipped_spell_ids = Array[int]([0, 1, 0, 1])
 health_label = NodePath("../Camera2D/Health Number")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("2_obp16")
+script = ExtResource("4_yigvu")
 
 [node name="Health Number" type="Label" parent="Camera2D"]
 offset_left = -941.0

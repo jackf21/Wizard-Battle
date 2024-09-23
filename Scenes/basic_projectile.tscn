@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://de8os5xfy51il"]
 
 [ext_resource type="Script" path="res://Scripts/basic_projectile.gd" id="1_0gtfk"]
-[ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Projectiles/Magic Projectile.png" id="1_3fvi1"]
-[ext_resource type="Texture2D" uid="uid://dxobrblmdiqd4" path="res://Assets/Projectiles/fireball_old.png" id="3_okeg2"]
-[ext_resource type="Texture2D" uid="uid://cf1lm13ipjdyb" path="res://Assets/Projectiles/spear.png" id="4_jukdl"]
+[ext_resource type="Texture2D" uid="uid://cpq1jr221tjgj" path="res://Assets/Magic Projectile.png" id="1_3fvi1"]
+[ext_resource type="Texture2D" uid="uid://dxobrblmdiqd4" path="res://Assets/fireball_old.png" id="3_okeg2"]
+[ext_resource type="Texture2D" uid="uid://cf1lm13ipjdyb" path="res://Assets/spear.png" id="4_jukdl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_isjul"]
 radius = 5.09902

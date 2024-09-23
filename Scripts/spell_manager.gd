@@ -8,8 +8,7 @@
 
 extends Node
 
-const BASIC_PROJECTILE_SCENE = preload("res://Scenes/Projectiles/basic_projectile.tscn")
-const EXPLOSIVE_PROJECTILESCENE = preload("res://Scenes/Projectiles/explosive_projectile.tscn")
+const BASIC_PROJECTILE_SCENE = preload("res://Scenes/basic_projectile.tscn")
 
 var shoot_ready := true
 var shoot_cooldown_time: float = 1
@@ -20,8 +19,7 @@ var shoot_cooldown_time: float = 1
 
 var mapIdToSpellDict = {
 	0: "cast_untyped_projectile",
-	1: "cast_fire_projectile",
-	2: "cast_explosive_fireball"
+	1: "cast_fire_projectile"
 }
 
 func cast_spell(id):
@@ -46,7 +44,7 @@ func _on_shoot_cooldown_timeout():
 
 # Basic projectile is what is fired by everything else, but is edited based on what is needed individually by other projectiles
 # This is NOT a projectile that can be fired itself!
-func cast_projectile(projectile_scene):
+func cast_basic_projectile(projectile_scene):
 	get_tree().get_root().add_child(projectile_scene)
 	projectile_scene.position = face.global_position
 	#projectile_scene.rotation = player.rotation
@@ -55,7 +53,7 @@ func cast_projectile(projectile_scene):
 func cast_untyped_projectile():
 	print("Casting basic projectile")
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
-	cast_projectile(basic_projectile)
+	cast_basic_projectile(basic_projectile)
 	#var test = basic_projectile.get_node("Untyped_sprite")
 	#if (test == null):
 	#print("basic projectile sprite has not instanced")
@@ -65,11 +63,7 @@ func cast_untyped_projectile():
 func cast_fire_projectile():
 	print("Casting fire projectile")
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
-	cast_projectile(basic_projectile)
+	cast_basic_projectile(basic_projectile)
 	basic_projectile.spell_damage_type = "FIRE"
 	basic_projectile.change_projectile_to_player()
 	basic_projectile.cast_fire_projectile()
-
-func cast_explosive_fireball():
-	var explosive_projectile = EXPLOSIVE_PROJECTILESCENE.instantiate()
-	cast_projectile(explosive_projectile)

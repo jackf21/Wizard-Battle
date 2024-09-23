@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf1lm13ipjdyb"
-path="res://.godot/imported/spear.png-2b0665fd48d0c94232d63d14d202eb4e.ctex"
+uid="uid://bwpdsrodcnneh"
+path="res://.godot/imported/Fireball.png-453a14b0c212c44f7db31bbf42e95daf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Projectiles/spear.png"
-dest_files=["res://.godot/imported/spear.png-2b0665fd48d0c94232d63d14d202eb4e.ctex"]
+source_file="res://Assets/Fireball.png"
+dest_files=["res://.godot/imported/Fireball.png-453a14b0c212c44f7db31bbf42e95daf.ctex"]
 
 [params]
 
