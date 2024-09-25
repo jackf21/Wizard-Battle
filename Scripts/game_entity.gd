@@ -4,7 +4,10 @@ class_name Entity
 
 extends CharacterBody2D
 
+#Types for determining the incoming damage type is
 enum damage_types{ UNTYPED, FIRE, ICE }
+
+enum entity_type{ FRIENDLY, ENEMY, NEUTRAL }
 
 var current_health: float
 var counter := 0
@@ -14,6 +17,7 @@ var is_ice_slowed: bool = false
 
 @export var speed: float
 @export var max_health: float
+@export var this_entity_type: entity_type
 
 func _ready():
 	current_health = max_health
