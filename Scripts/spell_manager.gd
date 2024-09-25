@@ -1,6 +1,5 @@
 # TODO:
 # # Fix direction of shots being skewed when moving
-# Changing collision layer and mask depending of whether the projectile is from the player or an enemy
 # MORE SPELLS
 # Large fireball that explodes on impact 
 # Raycast beam to the mouse position 
@@ -9,6 +8,7 @@
 extends Node
 
 const BASIC_PROJECTILE_SCENE = preload("res://Scenes/basic_projectile.tscn")
+const EXPLOSIVE_PROJECTILE_SCENE = preload("res://Scenes/explosive_projectile.tscn")
 
 var shoot_ready := true
 var shoot_cooldown_time: float = 1
@@ -18,8 +18,9 @@ var shoot_cooldown_time: float = 1
 @onready var shoot_cooldown = $shoot_cooldown
 
 var mapIdToSpellDict = {
-	0: "cast_untyped_projectile",
-	1: "cast_fire_projectile"
+	0: "cast_basic_untyped_projectile",
+	1: "cast_basic_fire_projectile",
+	2: "cast_explosive_fire_projectile"
 }
 
 func cast_spell(id):
@@ -50,7 +51,7 @@ func cast_basic_projectile(projectile_scene):
 	#projectile_scene.rotation = player.rotation
 	projectile_scene.velocity = player.global_position.direction_to(face.global_position)
 
-func cast_untyped_projectile():
+func cast_basic_untyped_projectile():
 	print("Casting basic projectile")
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
 	cast_basic_projectile(basic_projectile)
@@ -60,10 +61,17 @@ func cast_untyped_projectile():
 	basic_projectile.change_projectile_to_player()
 	basic_projectile.cast_untyped_projectile()
 
-func cast_fire_projectile():
+func cast_basic_fire_projectile():
 	print("Casting fire projectile")
 	var basic_projectile = BASIC_PROJECTILE_SCENE.instantiate()
 	cast_basic_projectile(basic_projectile)
 	basic_projectile.spell_damage_type = "FIRE"
 	basic_projectile.change_projectile_to_player()
 	basic_projectile.cast_fire_projectile()
+
+func cast_explosive_fire_projectile() -> void:
+	print("Casting explosive fire projectile")
+	var explosive_projectile = EXPLOSIVE_PROJECTILE_SCENE.instantiate()
+	cast_basic_projectile(explosive_projectile)
+	explosive_projectile.spell_damage_type = "FIRE"
+	explosive_projectile.change_projectile_to_player()

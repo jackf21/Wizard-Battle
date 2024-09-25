@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvl0tyngr61h5"]
+
+[ext_resource type="Script" path="res://Scripts/explosive_projectile.gd" id="1_tij0u"]
+[ext_resource type="Texture2D" uid="uid://dxobrblmdiqd4" path="res://Assets/fireball_old.png" id="2_jkggr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1skk7"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_umjmh"]
+radius = 49.0102
+
+[node name="explosive_projectile" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("1_tij0u")
+spell_damage = 40.0
+spell_id = 2
+
+[node name="projectile_collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1skk7")
+
+[node name="Fireball_sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_jkggr")
+
+[node name="explosion_area" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 5
+
+[node name="explosion_collision" type="CollisionShape2D" parent="explosion_area"]
+shape = SubResource("CircleShape2D_umjmh")
+disabled = true
+
+[node name="Explosion_sprite" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.345098)
+scale = Vector2(0.98, 0.98)
+texture = ExtResource("2_jkggr")
+
+[node name="Lifespan" type="Timer" parent="."]
+
+[node name="Explosion_duration" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Lifespan" to="." method="_on_lifespan_timeout"]
+[connection signal="timeout" from="Explosion_duration" to="." method="_on_explosion_duration_timeout"]
