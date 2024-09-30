@@ -28,16 +28,16 @@ func cast_spell(id):
 		shoot_cooldown.start(shoot_cooldown_time)
 		shoot_ready = false
 		# looks up ID in dictionary, return null if not found
-		var functionName = mapIdToSpellDict.get(id, null)
+		var function_name = mapIdToSpellDict.get(id, null)
 		
-		if functionName == null:
+		if function_name == null:
 			print("Spell ID not found in dictionary.")
 			return
 		
 		# calls appropriate spell function
-		call(functionName)
+		call(function_name)
 	else:
-		print("Shoot not ready")
+		#print("Shoot not ready")
 		return
 
 func _on_shoot_cooldown_timeout():

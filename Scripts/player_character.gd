@@ -11,6 +11,16 @@ extends Entity
 
 @onready var spell_manager = $"Spell Manager"
 
+
+var current_lvl: int = 0
+var current_xp_amount: int = 0
+var xp_for_lvlup: int = 100
+
+
+func _ready() -> void:
+	RunningPlayerData.enemy_has_died.connect(_on_enemy_died)
+
+
 func _physics_process(_delta):
 	#
 	# Basic Movement
@@ -20,9 +30,12 @@ func _physics_process(_delta):
 	velocity.normalized()
 	move_and_slide()
 
+
 func _process(_delta):
 	look_at(get_global_mouse_position())
 	health_label.text = str(current_health)
+	RunningPlayerData.player_posiiton = position
+
 
 func _input(event):
 	#
@@ -37,3 +50,16 @@ func _input(event):
 		spell_manager.cast_spell(equipped_spell_ids[2])
 	if event.is_action_pressed("shoot_quaternary"):
 		spell_manager.cast_spell(equipped_spell_ids[3]) 
+
+
+func _on_enemy_died(enemy_name):
+	add_xp(EnemyJsonData.get_xp_value(enemy_name))
+
+
+func add_xp(xp_value):
+	current_xp_amount += xp_value
+	print(current_xp_amount)
+	if(current_xp_amount > xp_for_lvlup):
+		current_lvl += 1
+		xp_for_lvlup = (xp_for_lvlup * 2) + xp_for_lvlup / 2
+		RunningPlayerData.enemy_has_died.emit() 

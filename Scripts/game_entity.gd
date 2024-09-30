@@ -4,10 +4,10 @@ class_name Entity
 
 extends CharacterBody2D
 
-#Types for determining the incoming damage type is
+#Enum for determining the incoming damage type is
 enum damage_types{ UNTYPED, FIRE, ICE }
 
-enum entity_type{ FRIENDLY, ENEMY, NEUTRAL }
+enum entity_type{ PLAYER, FRIENDLY, ENEMY, NEUTRAL }
 
 var current_health: float
 var counter := 0
@@ -19,8 +19,12 @@ var is_ice_slowed: bool = false
 @export var max_health: float
 @export var this_entity_type: entity_type
 
+
+
 func _ready():
 	current_health = max_health
+
+
 
 func damage_entity(damage_value: float, type: damage_types):
 	match type:
@@ -37,6 +41,10 @@ func damage_entity(damage_value: float, type: damage_types):
 			current_health -= damage_value
 			if(!is_ice_slowed):
 				apply_slow_effect(damage_value * 0.1, 0.8)
+				
+	if(current_health <= 0):
+		if(this_entity_type == entity_type.ENEMY):
+			enemy_entity_death(self.name)
 
 func apply_dot_effect(duration_between_damage : float, num_repeats : int, damage : float):
 	
@@ -96,3 +104,11 @@ func burn(damage):
 func remove_slow(slow_value):
 	speed *= 1/slow_value
 	is_ice_slowed = false
+
+
+
+# Function containing anything that needs to happen when an enemy dies
+func enemy_entity_death(entity_name):
+	#print(self.name + " has died")
+	RunningPlayerData.enemy_has_died.emit(entity_name)
+	queue_free()

@@ -1,5 +1,5 @@
 # TODO:
-# Enemy movesa towards the player when too close
+# Enemy moves towards the player when too close
 # Enemy direction of shooting has the same skew as the player shooting when moving
 #	Fixing player first would help?
 
@@ -18,20 +18,16 @@ var shoot_ready := true
 @export var min_player_dist := 200
 @export var max_player_dist := 450
 
-@onready var player = $"../player"
 @onready var face: Marker2D = $face
 
 # Timer between shots
 @onready var shoot_cooldown: Timer = $shoot_cooldown
 
 func _process(_delta) -> void:
-	var player_position = player.global_position
+	var player_position = RunningPlayerData.player_posiiton
 	var distance_to_player = global_position.distance_to(player_position)
 	look_at(player_position)
-	#
-	# Enemy will swap between movement and shooting modes depending on the time left on the timer
-	# Enemy should spend 1/3 of the time moving and the rest shooting 
-	#
+
 	if (distance_to_player > max_player_dist):
 		velocity = position.direction_to(player_position) * speed
 		move_and_slide()
